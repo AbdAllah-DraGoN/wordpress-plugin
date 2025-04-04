@@ -25,9 +25,9 @@ function custom_posts_shortcode($atts) {
     $args = array(
         'post_type' => 'post',
         'posts_per_page' => intval($atts['count']),
-        'post_category'=> $atts['category'],
+        'post_category'=> strval($atts['category']),
     );
-
+    // WP_Query => connect to the database and get the posts
     $query = new WP_Query($args);
     $output = '';
 
