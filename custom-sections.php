@@ -5,7 +5,11 @@
  * Version: 1.0
  * Author: abdullah mohamed
  */
-
+function custom_posts_enqueue_assets() {
+    wp_enqueue_style('custom-posts-style', plugin_dir_url(_FILE_) . 'assets/style.css');
+    wp_enqueue_script('custom-posts-script', plugin_dir_url(_FILE_) . 'assets/script.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'custom_posts_enqueue_assets');
 function custom_posts_shortcode($atts) {
     // shortcode attributes
     $atts = shortcode_atts(array(
